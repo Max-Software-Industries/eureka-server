@@ -1,5 +1,8 @@
 FROM eclipse-temurin:21-alpine
 
+ENV SECURITY_USERNAME admin
+ENV SECURITY_PASSWORD Corocora2024Llanos
+
 # Define el directorio de trabajo
 WORKDIR /app
 
@@ -20,4 +23,4 @@ VOLUME /tmp
 EXPOSE 8761
 
 # Ejecuta la aplicación
-ENTRYPOINT ["java", "-jar", "/app/app.jar"]
+ENTRYPOINT ["java", "-jar", "/app/app.jar","--spring.profiles.active=prod"]
