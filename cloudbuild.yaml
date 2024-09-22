@@ -1,0 +1,18 @@
+steps:
+  # 1. Paso para construir la imagen Docker usando el Dockerfile
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [
+      'build', '-t', 'gcr.io/$PROJECT_ID/eureka-server', '.'
+    ]
+
+  # 3. Paso para publicar la imagen en Google Container Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/$PROJECT_ID/eureka-server']
+
+# Opcional: Sustituye 'my-java-app' con el nombre de tu aplicación.
+# Este bloque de imágenes es opcional si quieres publicar artefactos adicionales.
+images:
+  - 'gcr.io/$PROJECT_ID/eureka-server'
+
+options:
+ logging: CLOUD_LOGGING_ONLY
