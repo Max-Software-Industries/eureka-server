@@ -23,4 +23,4 @@ VOLUME /tmp
 EXPOSE 8761
 
 # Ejecuta la aplicación
-ENTRYPOINT ["java", "-jar", "app.jar","--spring.profiles.active=prod"]
+ENTRYPOINT ["java", "-jar", "/app.jar","--spring.profiles.active=prod"]
